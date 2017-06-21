@@ -4,7 +4,12 @@
  *
  * @author sbyan, @date 6/21/17 10:51 AM
  */
-public class Library {
+
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application {
     public boolean someLibraryMethod() {
         return true;
     }
