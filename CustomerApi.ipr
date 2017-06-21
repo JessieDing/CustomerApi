@@ -16,6 +16,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="customer-api-boot_main" target="1.5" />
+      <module name="customer-api-boot_test" target="1.5" />
       <module name="CustomerApi_main" target="1.8" />
       <module name="CustomerApi_test" target="1.8" />
     </bytecodeTargetLevel>
@@ -25,6 +27,9 @@
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -34,6 +39,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/customer-api-boot" />
           </set>
         </option>
       </GradleProjectSettings>
@@ -68,6 +74,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/CustomerApi.iml" filepath="$PROJECT_DIR$/.idea/modules/CustomerApi.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/CustomerApi_main.iml" filepath="$PROJECT_DIR$/.idea/modules/CustomerApi_main.iml" group="CustomerApi" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/CustomerApi_test.iml" filepath="$PROJECT_DIR$/.idea/modules/CustomerApi_test.iml" group="CustomerApi" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/customer-api-boot/customer-api-boot.iml" filepath="$PROJECT_DIR$/.idea/modules/customer-api-boot/customer-api-boot.iml" group="customer-api-boot" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/customer-api-boot/customer-api-boot_main.iml" filepath="$PROJECT_DIR$/.idea/modules/customer-api-boot/customer-api-boot_main.iml" group="customer-api-boot" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/customer-api-boot/customer-api-boot_test.iml" filepath="$PROJECT_DIR$/.idea/modules/customer-api-boot/customer-api-boot_test.iml" group="customer-api-boot" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
@@ -80,6 +89,15 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
   <component name="libraryTable">
+    <library name="Gradle: junit:junit:4.11">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.11/4e031bb61df09069aeb2bffb4019e7a5034a4ee0/junit-4.11.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.11/28e0ad201304e4a4abf999ca0570b7cffc352c3c/junit-4.11-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Gradle: junit:junit:4.12">
       <CLASSES>
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar!/" />
