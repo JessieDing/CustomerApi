@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75091973-95d6-436c-95b6-11a2ac9f84f3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/customer-api-boot/config/checkstyle/checkstyle-main.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/customer-api-boot/src/main/java/Library.java" afterPath="$PROJECT_DIR$/customer-api-boot/src/main/java/Application.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/customer-api-boot/src/test/java/LibraryTest.java" afterPath="$PROJECT_DIR$/customer-api-boot/src/test/java/ApplicationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CustomerApi.ipr" afterPath="$PROJECT_DIR$/CustomerApi.ipr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CustomerApi.iws" afterPath="$PROJECT_DIR$/CustomerApi.iws" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/customer-api-boot/config/checkstyle/checkstyle-test.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/customer-api-boot/build.gradle" afterPath="$PROJECT_DIR$/customer-api-boot/build.gradle" />
     </list>
     <ignored path="CustomerApi.iws" />
@@ -148,11 +144,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/customer-api-boot/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+            <state relative-caret-position="408">
+              <caret line="34" column="102" selection-start-line="34" selection-start-column="102" selection-end-line="34" selection-end-column="102" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkstyle-test.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/customer-api-boot/config/checkstyle/checkstyle-test.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -697,8 +703,8 @@
         <option value="$PROJECT_DIR$/config/checkstyle/checkstyle-main" />
         <option value="$PROJECT_DIR$/customer-api-boot/config/checkstyle/checkstyle-main.xml" />
         <option value="$PROJECT_DIR$/customer-api-boot/src/main/java/Library.java" />
-        <option value="$PROJECT_DIR$/customer-api-boot/build.gradle" />
         <option value="$PROJECT_DIR$/customer-api-boot/src/main/java/Application.java" />
+        <option value="$PROJECT_DIR$/customer-api-boot/build.gradle" />
       </list>
     </option>
   </component>
@@ -868,6 +874,9 @@
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/customer-api-boot/config/checkstyle" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/customer-api-boot" />
     </key>
@@ -1258,8 +1267,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/customer-api-boot/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+        <state relative-caret-position="408">
+          <caret line="34" column="102" selection-start-line="34" selection-start-column="102" selection-end-line="34" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer-api-boot/config/checkstyle/checkstyle-test.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
           <folding />
         </state>
       </provider>
