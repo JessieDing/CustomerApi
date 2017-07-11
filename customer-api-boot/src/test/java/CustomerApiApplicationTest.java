@@ -7,9 +7,8 @@ import static org.junit.Assert.*;
  *
  * @author sbyan, @date 6/21/17 10:51 AM
  */
-public class ApplicationTest {
-    @Test public void testSomeLibraryMethod() {
-        Application classUnderTest = new Application();
-        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
+public class CustomerApiApplicationTest {
+    @Test
+    public void testSomeLibraryMethod() {
     }
 }
