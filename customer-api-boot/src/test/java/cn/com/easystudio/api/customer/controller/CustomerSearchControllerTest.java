@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 
 public class CustomerSearchControllerTest {
     @Test
-    public void shouldReturnCutomerGivenBrandAndCustomerId() throws Exception {
+    public void shouldReturnCustomerGivenBrandAndCustomerId() throws Exception {
         // Given
         String brand = "abc";
         Long customerId = 123L;
