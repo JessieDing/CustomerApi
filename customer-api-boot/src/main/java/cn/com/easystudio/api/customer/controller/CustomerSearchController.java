@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static javax.servlet.http.HttpServletResponse.SC_BAD_REQUEST;
+import static javax.servlet.http.HttpServletResponse.SC_NOT_FOUND;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 
@@ -17,8 +19,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @RequestMapping("/brands/{brand}")
 public class CustomerSearchController {
 
-    private static final int SC_BAD_REQUEST = 1;
-    private static final int SC_NOT_FOUND = 2;
     private static final String VERSION_HEADER = "version header";
     private static final String VERSION_DESCRIPTION = "version description";
 
