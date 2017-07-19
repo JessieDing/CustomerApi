@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
+
 @RestController
 @RequestMapping("/brands/{brand}")
 public class CustomerSearchController {
@@ -20,6 +21,14 @@ public class CustomerSearchController {
     private static final int SC_NOT_FOUND = 2;
     private static final String VERSION_HEADER = "version header";
     private static final String VERSION_DESCRIPTION = "version description";
+
+    private static final String CUSTOMER_SEARCH_DESCRIPTION = "Supports searching for customers...";
+    private static final String ACTIVITY_SEARCH_DESCRIPTION = "Supports retrieval of a Customer based on...";
+    private static final String CLAIM_SEARCH_DESCRIPTION = "Supports retrieval of a Customer based on a claim...";
+    private static final String MOTOR_RISK_SEARCH_DESCRIPTION = "Supports retrieving customer based on their vehicle...";
+    private static final String PRODUCT_LINE_SEARCH_DESCRIPTION = "Supports a broader search for a product by...";
+    private static final String STRICT_MATCH = "By default searching will be done as a wildcard search...";
+    private static final String PRODUCT_LINE = "The customer has a product that belongs to a particular product line of...";
 
     @RequestMapping(value = "/customers/{customerId}", method = GET)
     @ApiOperation(value = "Retrieve Customer", notes = "Supports retrieving a customer based on their brand and GCIS id" +
