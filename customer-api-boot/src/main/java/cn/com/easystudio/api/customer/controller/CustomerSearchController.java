@@ -2,8 +2,9 @@ package cn.com.easystudio.api.customer.controller;
 
 
 import cn.com.easystudio.api.customer.entity.Customer;
+import cn.com.easystudio.api.customer.service.CustomerProfileService;
 import io.swagger.annotations.*;
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +31,9 @@ public class CustomerSearchController {
     private static final String STRICT_MATCH = "By default searching will be done as a wildcard search...";
     private static final String PRODUCT_LINE = "The customer has a product that belongs to a particular product line of...";
 
+    @Autowired
+    private CustomerProfileService service;
+
     @RequestMapping(value = "/customers/{customerId}", method = GET)
     @ApiOperation(value = "Retrieve Customer", notes = "Supports retrieving a customer based on their brand and GCIS id" +
             "This is direct retrieval from GCIS and is not considered a search.")
@@ -40,10 +44,6 @@ public class CustomerSearchController {
     @ResponseHeader(name = VERSION_HEADER, description = VERSION_DESCRIPTION)
     public ResponseEntity<Customer> getCustomer(@PathVariable @ApiParam(value = "Brand", required = true) String brand,
                                                 @PathVariable @ApiParam(value = "Customer Id", required = true) Long customerId) {
-
-        Customer customer = new Customer();
-        customer.setId("001");
-        customer.setName("zhandsan");
-        return new ResponseEntity<>(customer, HttpStatus.OK);
+        return service.getCustomer(brand, customerId);
     }
 }
