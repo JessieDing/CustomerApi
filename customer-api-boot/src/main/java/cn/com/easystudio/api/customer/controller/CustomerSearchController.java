@@ -1,7 +1,7 @@
 package cn.com.easystudio.api.customer.controller;
 
 
-import cn.com.easystudio.api.customer.entity.Customer;
+import cn.com.easystudio.api.customer.model.json.Customer;
 import cn.com.easystudio.api.customer.service.CustomerProfileService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
