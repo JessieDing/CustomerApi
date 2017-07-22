@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class CustomerData {
 
     @ApiModelProperty(value = "Customer Resource's Version Number", required = true, readOnly = true, position = 1)
-    private String versionMeta;
+    private VersionMeta versionMeta;
 
     @ApiModelProperty(value = "Customer's ID", required = true, readOnly = true, example = "EXAMPLE_CUSTOMER_ID", position = 2)
     private String id;
@@ -25,11 +25,11 @@ public class CustomerData {
     @ApiModelProperty(value = "Customer Related Resources", required = true, readOnly = true, position = 5)
     private CustomerLinks links;
 
-    public String getVersionMeta() {
+    public VersionMeta getVersionMeta() {
         return versionMeta;
     }
 
-    public void setVersionMeta(String versionMeta) {
+    public void setVersionMeta(VersionMeta versionMeta) {
         this.versionMeta = versionMeta;
     }
 
