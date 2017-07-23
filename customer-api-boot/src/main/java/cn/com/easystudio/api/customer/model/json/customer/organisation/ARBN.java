@@ -1,24 +1,27 @@
-package cn.com.easystudio.api.customer.model.json.customer;
+package cn.com.easystudio.api.customer.model.json.customer.organisation;
 
 import cn.com.easystudio.api.customer.model.enumeration.Correctness;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Optional;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class ABN {
-    @ApiModelProperty(value = "The Australian Business Number is a unique identifier issued by the Australian Business" +
-            "... by the Australian Taxation Office", required = true, example = "85716127104", position = 1)
+@JsonPropertyOrder({"detail", "correctness"})
+public class ARBN {
+    @ApiModelProperty(value = "An Australian registered Body Number is a nine digit number allocated by ASIC" +
+            " when a body is registered with them other than as a company, for example, foreign companies " +
+            "and registrable Australian bodies", required = true, example = "123456789", position = 1)
     private String detail;
 
     @ApiModelProperty(value = "CORRECTNESS", required = true, position = 2)
     private Optional<Correctness> correctness = Optional.empty();
 
-    public ABN() {
+    public ARBN() {
     }
 
-    public ABN(String detail, Correctness correctness) {
+    public ARBN(String detail, Correctness correctness) {
         this.detail = detail;
         this.correctness = Optional.ofNullable(correctness);
     }

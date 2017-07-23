@@ -32,7 +32,6 @@ public class CustomerAttributes {
     private CustomerLifecycle lifecycle;
 
     @ApiModelProperty(value = "Australian Business Number", position = 4)
-    // TODO: complete ABN
     private ABN abn;
 
     @ApiModelProperty(value = "Customer's Industry Code", position = 5)
@@ -41,22 +40,20 @@ public class CustomerAttributes {
     @ApiModelProperty(value = "Customer's Marketing Segment", readOnly = true, position = 6)
     private Segment segment;
 
-    @ApiModelProperty(value = "Customer's Website",example = "http://customer-live.com",position = 7)
+    @ApiModelProperty(value = "Customer's Website", example = "http://customer-live.com", position = 7)
     private String website;
 
-    @ApiModelProperty(value = "Customer's individual specific information",position = 8)
-    // TODO: complete Individual
+    @ApiModelProperty(value = "Customer's individual specific information", position = 8)
     private Individual individual;
 
-    @ApiModelProperty(value = "Customer's organisation specific information",position = 9)
-    // TODO: complete Organisation
+    @ApiModelProperty(value = "Customer's organisation specific information", position = 9)
     private Organisation organisation;
 
-    @ApiModelProperty(value = "Customer's Addresses",position = 10)
+    @ApiModelProperty(value = "Customer's Addresses", position = 10)
     // TODO: complete Addresses
     private Addresses addresses;
 
-    @ApiModelProperty(value = "Customer's contact methods",position = 11)
+    @ApiModelProperty(value = "Customer's contact methods", position = 11)
     // TODO: complete ContactMethods
     private ContactMethods contactMethods;
 
@@ -64,7 +61,7 @@ public class CustomerAttributes {
     // TODO: complete ProductSystemCustomerLink
     private List<ProductSystemCustomerLink> productSystemCustomerLinks;
 
-    @ApiModelProperty(value = "Audit details for the resource", required = true,readOnly = true, position = 13)
+    @ApiModelProperty(value = "Audit details for the resource", required = true, readOnly = true, position = 13)
     // TODO: complete Audit
     private Audit audit;
 
@@ -76,6 +73,7 @@ public class CustomerAttributes {
     public void setBrand(String brand) {
         this.brand = brand;
     }
+
     public void setBrand(Brand brand) {
         this.brand = brand.name();
     }
