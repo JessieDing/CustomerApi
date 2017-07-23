@@ -1,4 +1,5 @@
 package cn.com.easystudio.api.customer.entity;
 
-public class Addresses {
+public class Address {
+
 }

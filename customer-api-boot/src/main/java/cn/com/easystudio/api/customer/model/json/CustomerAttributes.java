@@ -1,9 +1,9 @@
 package cn.com.easystudio.api.customer.model.json;
 
-import cn.com.easystudio.api.customer.entity.Addresses;
 import cn.com.easystudio.api.customer.model.enumeration.Brand;
 import cn.com.easystudio.api.customer.model.enumeration.CustomerLifecycle;
 import cn.com.easystudio.api.customer.model.enumeration.CustomerType;
+import cn.com.easystudio.api.customer.model.json.address.Addresses;
 import cn.com.easystudio.api.customer.model.json.contact.ContactMethods;
 import cn.com.easystudio.api.customer.model.json.customer.ABN;
 import cn.com.easystudio.api.customer.model.json.customer.Audit;
@@ -20,7 +20,7 @@ import java.util.List;
 @ApiModel(value = "Attributes")
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @JsonPropertyOrder({"brand", "customerType", "lifecycle", "abn", "anzsic", "segment", "website", "individual", "organisation",
-        "addresses", "contactMethods", "productSystemCustomerLinks", "audit"})
+        "address", "contactMethods", "productSystemCustomerLinks", "audit"})
 public class CustomerAttributes {
     @ApiModelProperty(value = "Customer's Brand", required = true, example = "PICC", position = 1)
     private String brand;
@@ -49,20 +49,16 @@ public class CustomerAttributes {
     @ApiModelProperty(value = "Customer's organisation specific information", position = 9)
     private Organisation organisation;
 
-    @ApiModelProperty(value = "Customer's Addresses", position = 10)
-    // TODO: complete Addresses
+    @ApiModelProperty(value = "Customer's Address", position = 10)
     private Addresses addresses;
 
     @ApiModelProperty(value = "Customer's contact methods", position = 11)
-    // TODO: complete ContactMethods
     private ContactMethods contactMethods;
 
     @ApiModelProperty(value = "Customer's product system customer indentifiers", readOnly = true, position = 12)
-    // TODO: complete ProductSystemCustomerLink
     private List<ProductSystemCustomerLink> productSystemCustomerLinks;
 
     @ApiModelProperty(value = "Audit details for the resource", required = true, readOnly = true, position = 13)
-    // TODO: complete Audit
     private Audit audit;
 
 
