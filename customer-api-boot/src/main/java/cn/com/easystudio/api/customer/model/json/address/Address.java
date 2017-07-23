@@ -166,8 +166,8 @@ public class Address {
         return correctness;
     }
 
-    public void setCorrectness(Correctness correctness) {
-        this.correctness = Optional.ofNullable(correctness);
+    public void setCorrectness(Optional<Correctness> correctness) {
+        this.correctness = correctness;
     }
 
     public Boolean getForceAddress() {

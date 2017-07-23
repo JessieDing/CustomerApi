@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CustomerProfileRepository extends PagingAndSortingRepository<CustomerProfile, Long>, JpaSpecificationExecutor<CustomerProfile> {
-    CustomerProfile findOneByCustomerProfileIdAndName(Long id, String name);
+    CustomerProfile findOneByCustomerProfileIdAndBrandId(Long id, String name);
 }

@@ -17,7 +17,8 @@ public class DefaultCustomerProfileService implements CustomerProfileService {
 
     @Override
     public ResponseEntity<Customer> getCustomer(String brand, Long customerId) {
-        CustomerProfile customerProfile = customerProfileRepository.findOneByCustomerProfileIdAndName(1L, "Ada");
+        //CustomerProfileId和BrandId与CustomerProfile一致
+        CustomerProfile customerProfile = customerProfileRepository.findOneByCustomerProfileIdAndBrandId(customerId, brand);
         //TODO: 实际CustomerProfile转为CustomerData
         CustomerData customerData = new CustomerData();
         Customer customer = new Customer(customerData);
