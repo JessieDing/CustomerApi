@@ -1,5 +1,6 @@
 package cn.com.easystudio.api.customer.model.json.contact;
 
+import cn.com.easystudio.api.customer.model.enumeration.ContactType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
@@ -10,74 +11,68 @@ import io.swagger.annotations.ApiModelProperty;
 @JsonPropertyOrder({"preferredContactMehod", "mobilePhone", "homePhone", "workPhone", "fax", "email"})
 public class ContactMethods {
     @ApiModelProperty(value = "The customer's preferred method to be contacted", position = 1)
-    //TODO:ContactType
-    private String preferredContactMehod;
+    private ContactType preferredContactMehod;
 
     @ApiModelProperty(value = "The customer's home phone", position = 2)
-    //TODO:Contact
-    private String homePhone;
+    private Contact homePhone;
 
     @ApiModelProperty(value = "The customer's work phone", position = 3)
-    //TODO:Contact
-    private String workPhone;
+    private Contact workPhone;
 
     @ApiModelProperty(value = "The customer's fax", position = 4)
-    //TODO:Contact
-    private String fax;
+    private Contact fax;
 
     @ApiModelProperty(value = "The customer's mobile phone", position = 5)
-    //TODO:Contact
-    private String mobilePhone;
+    private Contact mobilePhone;
 
     @ApiModelProperty(value = "The customer's email address", position = 6)
-    //TODO:Contact
-    private String email;
+    private Contact email;
 
-    public String getPreferredContactMehod() {
+    public ContactType getPreferredContactMehod() {
         return preferredContactMehod;
     }
 
-    public void setPreferredContactMehod(String preferredContactMehod) {
-        this.preferredContactMehod = preferredContactMehod;
+    public void setPreferredContactMehod(ContactType preferredContactMethod) {
+        this.preferredContactMehod = preferredContactMethod;
     }
 
-    public String getHomePhone() {
+    public Contact getHomePhone() {
         return homePhone;
     }
 
-    public void setHomePhone(String homePhone) {
+    public void setHomePhone(Contact homePhone) {
         this.homePhone = homePhone;
     }
 
-    public String getWorkPhone() {
+    public Contact getWorkPhone() {
         return workPhone;
     }
 
-    public void setWorkPhone(String workPhone) {
+    public void setWorkPhone(Contact workPhone) {
         this.workPhone = workPhone;
     }
 
-    public String getFax() {
+    public Contact getFax() {
         return fax;
     }
 
-    public void setFax(String fax) {
+    public void setFax(Contact fax) {
         this.fax = fax;
     }
 
-    public String getMobilePhone() {
+    public Contact getMobilePhone() {
         return mobilePhone;
     }
 
-    public void setMobilePhone(String mobilePhone) {
+    public void setMobilePhone(Contact mobilePhone) {
         this.mobilePhone = mobilePhone;
     }
 
-    public String getEmail() {
+    public Contact getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(Contact email) {
         this.email = email;
     }
 }

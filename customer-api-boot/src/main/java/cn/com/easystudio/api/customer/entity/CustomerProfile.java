@@ -16,7 +16,7 @@ public class CustomerProfile {
     private String auditDetails;
 
     @Column(name = "contacts")
-    private String contacts;
+    private Contacts contacts;
 
     @Column(name = "addresses")
     private String addresses;
@@ -58,11 +58,11 @@ public class CustomerProfile {
         this.auditDetails = auditDetails;
     }
 
-    public String getContacts() {
+    public Contacts getContacts() {
         return contacts;
     }
 
-    public void setContacts(String contacts) {
+    public void setContacts(Contacts contacts) {
         this.contacts = contacts;
     }
 

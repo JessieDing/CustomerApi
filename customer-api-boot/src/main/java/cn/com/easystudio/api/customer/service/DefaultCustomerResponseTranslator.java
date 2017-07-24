@@ -7,6 +7,7 @@ import cn.com.easystudio.api.customer.model.enumeration.CustomerType;
 import cn.com.easystudio.api.customer.model.json.*;
 import cn.com.easystudio.api.customer.model.json.address.Address;
 import cn.com.easystudio.api.customer.model.json.address.Addresses;
+import cn.com.easystudio.api.customer.model.json.contact.Contact;
 import cn.com.easystudio.api.customer.model.json.contact.ContactMethods;
 import cn.com.easystudio.api.customer.model.json.customer.ABN;
 import cn.com.easystudio.api.customer.model.json.customer.Audit;
@@ -36,7 +37,7 @@ public class DefaultCustomerResponseTranslator implements ResourceAssembler<Cust
         translateABN(customerAttributes);
         translateAddresses(profile, customerAttributes);
         translateAudit(customerAttributes);
-        translateContactMethods(customerAttributes);
+        translateContactMethods(customerAttributes,profile);
         translateIndividual(customerAttributes);
         translateOrganisation(customerAttributes);
         translateProductSysCustomerLnks(customerAttributes);
@@ -102,15 +103,21 @@ public class DefaultCustomerResponseTranslator implements ResourceAssembler<Cust
         customerAttributes.setIndividual(individual);
     }
 
-    private void translateContactMethods(CustomerAttributes customerAttributes) {
+    private void translateContactMethods(CustomerAttributes customerAttributes, CustomerProfile profile) {
         //ContactMethods 设值
         ContactMethods contactMethods = new ContactMethods();
-        contactMethods.setEmail("aaa@bbb.com");
-        contactMethods.setFax("001-2345678");
-        contactMethods.setHomePhone("123456789");
-        contactMethods.setWorkPhone("001-2345678");
-        contactMethods.setMobilePhone("13923456789");
-        contactMethods.setPreferredContactMehod("preferredContactMehod sample");
+        Contact email =  new Contact();
+        email.setDetail(profile.getContacts().getEmail());//?
+        contactMethods.setEmail(email);
+
+        Contact fax = new Contact();
+        fax.setDetail(profile.getContacts().getFax());
+        contactMethods.setFax(fax);
+
+        Contact homephone = new Contact();
+        homephone.setDetail(profile.getContacts().getHomephone());
+        contactMethods.setHomePhone(homephone);
+
         customerAttributes.setContactMethods(contactMethods);
     }
 
