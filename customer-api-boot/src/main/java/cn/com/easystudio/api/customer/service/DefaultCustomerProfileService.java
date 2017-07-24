@@ -19,8 +19,12 @@ public class DefaultCustomerProfileService implements CustomerProfileService {
     public ResponseEntity<Customer> getCustomer(String brand, Long customerId) {
         //CustomerProfileId和BrandId与CustomerProfile一致
         CustomerProfile customerProfile = customerProfileRepository.findOneByCustomerProfileIdAndBrandId(customerId, brand);
-        //TODO: 实际CustomerProfile转为CustomerData
-        CustomerData customerData = new CustomerData();
+
+        //实际CustomerProfile转为CustomerData
+        DefaultCustomerResponseTranslator customerResponseTranslator = new DefaultCustomerResponseTranslator();
+        CustomerData customerData = customerResponseTranslator.translateProfile(customerProfile);
+
+
         Customer customer = new Customer(customerData);
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }

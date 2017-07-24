@@ -12,24 +12,34 @@ public class CustomerProfile {
     @Column(name = "cust_prof_id")
     private Long customerProfileId;
 
+    @Column(name = "audit_details")
     private String auditDetails;
 
+    @Column(name = "contacts")
     private String contacts;
 
+    @Column(name = "addresses")
     private String addresses;
 
+    @Column(name = "customer_searches")
     private String customerSearches;
 
+    @Column(name = "category_details")
     private String categoryDetails;
 
+    @Column(name = "product_system_links")
     private String productSystemLinks;
 
+    @Column(name = "profile_status")
     private String profileStatus;
 
+    @Column(name = "brand_id")
     private String brandId;
 
+    @Column(name = "party_type")
     private String partyType;
 
+    @Column(name = "use_count")
     private Long useCount;
 
     public Long getCustomerProfileId() {
