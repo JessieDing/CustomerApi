@@ -9,19 +9,32 @@ public class Contacts {
     @Column(name = "cust_prof_id")
     private Long customerProfileId;
 
-    @Embedded
-    private AuditDetails auditDetails;
-
     private String email;
+
+    @Column(name = "email_cr_ind")
     private String emailCrInd;
+
     private String fax;
+
+    @Column(name = "fax_cr_ind")
     private String faxCrInd;
+
     private String homephone;
+
+    @Column(name = "homephone_cr_ind")
     private String homephoneCrInd;
+
     private String workphone;
+
+    @Column(name = "workphone_cr_ind")
     private String workphoneCrInd;
+
     private String mobile;
+
+    @Column(name = "mobile_cr_ind")
     private String mobileCrInd;
+
+    @Column(name = "prim_contact_ind")
     private String primContactInd;
 
     public Long getCustomerProfileId() {
@@ -30,14 +43,6 @@ public class Contacts {
 
     public void setCustomerProfileId(Long customerProfileId) {
         this.customerProfileId = customerProfileId;
-    }
-
-    public AuditDetails getAuditDetails() {
-        return auditDetails;
-    }
-
-    public void setAuditDetails(AuditDetails auditDetails) {
-        this.auditDetails = auditDetails;
     }
 
     public String getEmail() {

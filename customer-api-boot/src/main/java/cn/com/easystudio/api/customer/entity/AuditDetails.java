@@ -1,5 +1,7 @@
+/*
 package cn.com.easystudio.api.customer.entity;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
@@ -12,14 +14,14 @@ public class AuditDetails {
     private String lastModifiedBy;
 
     @Column(name = "TIMESTAMP_WRITE")
-//    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime lastModifiedDate;
 
     @Column(name = "USER_ENTER")
     private String createdBy;
 
     @Column(name = "TIMESTAMP_ENTER")
-//    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime createdDate;
 
     public String getLastModifiedBy() {
@@ -30,14 +32,6 @@ public class AuditDetails {
         this.lastModifiedBy = lastModifiedBy;
     }
 
-    public DateTime getLastModifiedDate() {
-        return lastModifiedDate;
-    }
-
-    public void setLastModifiedDate(DateTime lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
-    }
-
     public String getCreatedBy() {
         return createdBy.trim();
     }
@@ -45,12 +39,5 @@ public class AuditDetails {
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
-
-    public DateTime getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(DateTime createdDate) {
-        this.createdDate = createdDate;
-    }
 }
+*/

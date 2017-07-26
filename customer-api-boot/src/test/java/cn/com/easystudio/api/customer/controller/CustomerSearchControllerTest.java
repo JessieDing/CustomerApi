@@ -17,4 +17,10 @@ public class CustomerSearchControllerTest {
         Assert.assertEquals("001", responseEntity.getBody().getId());
         Assert.assertEquals("zhandsan", responseEntity.getBody().getName());*/
     }
+
+    @Test
+    public void shouldThrowInvalidBrandExceptionGivenWrongBrandAndCustomerIdWhenGetCustomer() throws Exception {
+
+
+    }
 }

@@ -1,9 +1,6 @@
 package cn.com.easystudio.api.customer.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "CUSTOMER_PROF")
@@ -15,7 +12,8 @@ public class CustomerProfile {
     @Column(name = "audit_details")
     private String auditDetails;
 
-    @Column(name = "contacts")
+    @OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private Contacts contacts;
 
     @Column(name = "addresses")
