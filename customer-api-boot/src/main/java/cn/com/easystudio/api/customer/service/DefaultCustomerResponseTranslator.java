@@ -37,7 +37,7 @@ public class DefaultCustomerResponseTranslator implements ResourceAssembler<Cust
         translateABN(customerAttributes);
         translateAddresses(profile, customerAttributes);
         translateAudit(customerAttributes);
-        translateContactMethods(customerAttributes,profile);
+        translateContactMethods(customerAttributes, profile);
         translateIndividual(customerAttributes);
         translateOrganisation(customerAttributes);
         translateProductSysCustomerLnks(customerAttributes);
@@ -106,17 +106,20 @@ public class DefaultCustomerResponseTranslator implements ResourceAssembler<Cust
     private void translateContactMethods(CustomerAttributes customerAttributes, CustomerProfile profile) {
         //ContactMethods 设值
         ContactMethods contactMethods = new ContactMethods();
-        Contact email =  new Contact();
-        email.setDetail(profile.getContacts().getEmail());//?
-        contactMethods.setEmail(email);
 
-        Contact fax = new Contact();
-        fax.setDetail(profile.getContacts().getFax());
-        contactMethods.setFax(fax);
+        if (profile.getContacts() != null) {
+            Contact email = new Contact();
+            email.setDetail(profile.getContacts().getEmail());//?
+            contactMethods.setEmail(email);
 
-        Contact homephone = new Contact();
-        homephone.setDetail(profile.getContacts().getHomephone());
-        contactMethods.setHomePhone(homephone);
+            Contact fax = new Contact();
+            fax.setDetail(profile.getContacts().getFax());
+            contactMethods.setFax(fax);
+
+            Contact homephone = new Contact();
+            homephone.setDetail(profile.getContacts().getHomephone());
+            contactMethods.setHomePhone(homephone);
+        }
 
         customerAttributes.setContactMethods(contactMethods);
     }
