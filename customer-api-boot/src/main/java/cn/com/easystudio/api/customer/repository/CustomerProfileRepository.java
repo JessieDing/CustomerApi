@@ -5,7 +5,8 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public interface CustomerProfileRepository extends PagingAndSortingRepository<CustomerProfile, Long>, JpaSpecificationExecutor<CustomerProfile> {
-    CustomerProfile findOneByCustomerProfileIdAndBrandId(Long id, String name);
+    CustomerProfile findOneByCustomerProfileIdAndBrandId(Long id, String name);//将方法名解析为SQL语句
 }

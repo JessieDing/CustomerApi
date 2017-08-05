@@ -4,6 +4,7 @@ import cn.com.easystudio.api.customer.entity.CustomerProfile;
 import cn.com.easystudio.api.customer.model.enumeration.Correctness;
 import cn.com.easystudio.api.customer.model.enumeration.CustomerLifecycle;
 import cn.com.easystudio.api.customer.model.enumeration.CustomerType;
+import cn.com.easystudio.api.customer.model.enumeration.GenderType;
 import cn.com.easystudio.api.customer.model.json.*;
 import cn.com.easystudio.api.customer.model.json.address.Address;
 import cn.com.easystudio.api.customer.model.json.address.Addresses;
@@ -12,8 +13,7 @@ import cn.com.easystudio.api.customer.model.json.contact.ContactMethods;
 import cn.com.easystudio.api.customer.model.json.customer.ABN;
 import cn.com.easystudio.api.customer.model.json.customer.Audit;
 import cn.com.easystudio.api.customer.model.json.customer.Segment;
-import cn.com.easystudio.api.customer.model.json.customer.individual.Individual;
-import cn.com.easystudio.api.customer.model.json.customer.individual.IndividualName;
+import cn.com.easystudio.api.customer.model.json.customer.individual.*;
 import cn.com.easystudio.api.customer.model.json.customer.organisation.*;
 import org.joda.time.DateTime;
 import org.springframework.hateoas.Resource;
@@ -25,7 +25,8 @@ import java.util.Optional;
 
 public class DefaultCustomerResponseTranslator implements ResourceAssembler<CustomerProfile, Resource<CustomerData>> {
 
-    public CustomerData translateProfile(CustomerProfile profile) {
+    //SearchCustomer 需要individual
+    public CustomerData translateProfile(CustomerProfile profile, cn.com.easystudio.api.customer.entity.Individual individual) {
         assert profile != null;
         CustomerData result = new CustomerData();
         result.setId(String.valueOf(profile.getCustomerProfileId()));
@@ -38,7 +39,7 @@ public class DefaultCustomerResponseTranslator implements ResourceAssembler<Cust
         translateAddresses(profile, customerAttributes);
         translateAudit(customerAttributes);
         translateContactMethods(customerAttributes, profile);
-        translateIndividual(customerAttributes);
+        translateIndividual(customerAttributes, individual);
         translateOrganisation(customerAttributes);
         translateProductSysCustomerLnks(customerAttributes);
         translateSegment(customerAttributes);
@@ -56,6 +57,11 @@ public class DefaultCustomerResponseTranslator implements ResourceAssembler<Cust
         result.setVersionMeta(versionMeta);
 
         return result;
+    }
+
+    //getCustomer 无需Individual
+    public CustomerData translateProfile(CustomerProfile profile) {
+        return translateProfile(profile, new cn.com.easystudio.api.customer.entity.Individual());
     }
 
     private void translateSegment(CustomerAttributes customerAttributes) {
@@ -94,13 +100,48 @@ public class DefaultCustomerResponseTranslator implements ResourceAssembler<Cust
         customerAttributes.setOrganisation(organisation);
     }
 
-    private void translateIndividual(CustomerAttributes customerAttributes) {
+    private void translateIndividual(CustomerAttributes customerAttributes, cn.com.easystudio.api.customer.entity.Individual individualEntity) {
         //Individual 设值
         Individual individual = new Individual();
-        IndividualName name = new IndividualName("Chandler", "Nelson", "Green", "SNR", "MR", "Chan", "CHANDLER NELSON GREEN SNR",
+        IndividualName name = new IndividualName(individualEntity.getFirstName(), individualEntity.getMiddleName(),
+                individualEntity.getLastName(), individualEntity.getSuffix(), individualEntity.getTitle(),
+                individualEntity.getPreferredName(), individualEntity.getUnstandardisedName(),
                 true, Correctness.CORRECT);
         individual.setName(name);
+
+        DateOfBirth birthday = new DateOfBirth(individualEntity.getBirthday().toLocalDate(), Correctness.CORRECT);
+        individual.setDateOfBirth(birthday);
+
+        GenderType genderType = getGenderType(individualEntity.getGender());
+        individual.setGender(new Gender(genderType, Correctness.CORRECT));
+
+        Deceased deceasedStatus = getDeceasedStatus(individualEntity.getDeceased());
+        individual.setDeceased(deceasedStatus);
+
+        Occupation occuupation = new Occupation(individualEntity.getOccupation(), individualEntity.getOccupation());
+        individual.setOccupation(occuupation);
+
         customerAttributes.setIndividual(individual);
+    }
+
+    //是否在世
+    private Deceased getDeceasedStatus(Integer deceased) {
+        if (deceased == 0) {
+            return new Deceased(false, Correctness.CORRECT);
+        } else {
+            return new Deceased(true, Correctness.CORRECT);
+        }
+    }
+
+    //性别0-女；1-男；2-未知
+    private GenderType getGenderType(Integer gender) {
+        if (gender == 0) {
+            return GenderType.FEMALE;
+        } else if (gender == 1) {
+            return GenderType.MALE;
+        } else {
+            return GenderType.UNKNOWN;
+        }
     }
 
     private void translateContactMethods(CustomerAttributes customerAttributes, CustomerProfile profile) {
@@ -156,6 +197,7 @@ public class DefaultCustomerResponseTranslator implements ResourceAssembler<Cust
         customerAttributes.setAddresses(addresses);
     }
 
+
     private void translateABN(CustomerAttributes customerAttributes) {
         //ABN 设值
         ABN abn = new ABN();
@@ -163,7 +205,6 @@ public class DefaultCustomerResponseTranslator implements ResourceAssembler<Cust
         abn.setCorrectness(Optional.of(Correctness.CORRECT));
         customerAttributes.setAbn(abn);
     }
-
 
     @Override
     public Resource<CustomerData> toResource(CustomerProfile entity) {

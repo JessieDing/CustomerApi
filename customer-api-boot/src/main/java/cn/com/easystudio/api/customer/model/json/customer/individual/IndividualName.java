@@ -56,4 +56,76 @@ public class IndividualName {
         this.standardised = standardised;
         this.correctness = Optional.ofNullable(correctness);
     }
+
+    public String getPreferredName() {
+        return preferredName;
+    }
+
+    public void setPreferredName(String preferredName) {
+        this.preferredName = preferredName;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getSuffix() {
+        return suffix;
+    }
+
+    public void setSuffix(String suffix) {
+        this.suffix = suffix;
+    }
+
+    public String getUnstandardisedName() {
+        return unstandardisedName;
+    }
+
+    public void setUnstandardisedName(String unstandardisedName) {
+        this.unstandardisedName = unstandardisedName;
+    }
+
+    public Boolean getStandardised() {
+        return standardised;
+    }
+
+    public void setStandardised(Boolean standardised) {
+        this.standardised = standardised;
+    }
+
+    public Optional<Correctness> getCorrectness() {
+        return correctness;
+    }
+
+    public void setCorrectness(Optional<Correctness> correctness) {
+        this.correctness = correctness;
+    }
 }
